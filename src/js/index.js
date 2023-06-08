@@ -1,5 +1,4 @@
-const API_KEY = `live_xgJbTp7HDySw1CIfSTFuu3jEoMUIvb2dpZqt0pkmAkb3BCQRTNCyGVNsaqN2MP7l`;
-const URL = 'https://api.thecatapi.com/v1';
+import { fetchBreeds, fetchCatByBreed } from './cat-api';
 
 const selectRef = document.querySelector('.breed-select');
 const articleConteinerRef = document.querySelector('.cat-info');
@@ -10,11 +9,10 @@ errorRef.classList.add('is-hidden');
 selectRef.classList.add('is-hidden');
 
 selectRef.addEventListener('change', onSelectCat);
-fetchBreeds();
+loadCatsInfo();
 
-function fetchBreeds() {
-  fetch(`${URL}/breeds?api_key=${API_KEY}`)
-    .then(response => response.json())
+function loadCatsInfo() {
+  fetchBreeds()
     .then(catsInfo => {
       selectRef.classList.remove('is-hidden');
       loadRef.classList.add('is-hidden');
@@ -39,10 +37,7 @@ function createOptions(catsInfo) {
 function onSelectCat(event) {
   articleConteinerRef.innerHTML = ' ';
   const selectedCat = event.target.value;
-  fetch(
-    `${URL}/images/search?api_key=${API_KEY}&breed_id=${selectedCat}&limit=1`
-  )
-    .then(response => response.json())
+  fetchCatByBreed(selectedCat)
     .then(cat => {
       const name = cat[0].breeds[0].name;
       const url = cat[0].url;
