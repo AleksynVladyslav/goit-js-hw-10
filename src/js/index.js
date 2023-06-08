@@ -1,5 +1,3 @@
-export { selectRef, API_KEY, createOptions };
-
 const API_KEY = `live_xgJbTp7HDySw1CIfSTFuu3jEoMUIvb2dpZqt0pkmAkb3BCQRTNCyGVNsaqN2MP7l`;
 const URL = 'https://api.thecatapi.com/v1';
 
