@@ -39,7 +39,6 @@ function createOptions(catsInfo) {
 function onSelectCat(event) {
   articleConteinerRef.innerHTML = ' ';
   const selectedCat = event.target.value;
-  // console.log(selectedCat);
   fetch(
     `${URL}/images/search?api_key=${API_KEY}&breed_id=${selectedCat}&limit=1`
   )
