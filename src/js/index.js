@@ -1,9 +1,13 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 
-const selectRef = document.querySelector('.breed-select');
-const articleConteinerRef = document.querySelector('.cat-info');
-const loadRef = document.querySelector('.loader');
-const errorRef = document.querySelector('.error');
+const refs = {
+  selectRef: document.querySelector('.breed-select'),
+  articleConteinerRef: document.querySelector('.cat-info'),
+  loadRef: document.querySelector('.loader'),
+  errorRef: document.querySelector('.error'),
+};
+
+const { selectRef, articleConteinerRef, loadRef, errorRef } = refs;
 
 errorRef.classList.add('is-hidden');
 selectRef.classList.add('is-hidden');
